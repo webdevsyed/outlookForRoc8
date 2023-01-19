@@ -30,7 +30,7 @@
 	}
 }
 
-.email-card.active.selected {
+.email-card.active.clicked {
 	border: 1.5px solid var(--accent-color);
 	background-color: white;
 }

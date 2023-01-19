@@ -10,8 +10,3 @@ root.render(
       <EmailList />
   </React.StrictMode>
 )
-
-
-
-
-

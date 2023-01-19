@@ -3,7 +3,6 @@
 .container {
         padding: 1rem;
     margin: 0;
-    /* overflow: hidden; */
 }
 
 .filter {
@@ -24,8 +23,7 @@
 }
 
 .filter-button {
-  background-color: transparent;
-  /* background-color: var(--background-color); */
+  background-color: var(--body-background-color);
   border: none;
   padding: 0.40rem 1rem;
   margin-right: 0.5rem;
@@ -40,10 +38,13 @@
   border:1px solid var(--border-color)
 }
 
-.filter-button:hover {
-  background-color: var(--border-color);
-  cursor: pointer;
+@media (hover:hover){
+  .filter-button:hover {
+    background-color: var(--border-color);
+    cursor: pointer;
+  }
 }
+
 
 .email-list {
   position: relative;
@@ -61,9 +62,8 @@
   .email-list {
    height: 100%;
    }
-   .filter-button:hover {
-    background-color: #e1e5ea;;
-   
+  .email-body{
+    overflow: hidden;
   }
 }
 

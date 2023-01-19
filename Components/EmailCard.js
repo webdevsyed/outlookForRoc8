@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../styles/EmailCard.css'
 
-function EmailCard({ active, email, onClick, selected, favorited, read, formatDate }) {
+function EmailCard({ active, email, onClick, clicked, favorited, read, formatDate }) {
   // Function to handle clicking the card
   const handleClick = () => {
     onClick(email);
@@ -10,7 +10,7 @@ function EmailCard({ active, email, onClick, selected, favorited, read, formatDa
 
   return (
     <section
-      className={`email-card ${read.includes(email.id) ? 'read' : 'unread'} ${favorited.includes(email.id) ? 'favorited' : ''} ${active ? "active" : ""} ${selected}`}
+      className={`email-card ${read.includes(email.id) ? 'read' : 'unread'} ${favorited.includes(email.id) ? 'favorited' : ''} ${active ? "active" : ""} ${clicked}`}
       onClick={handleClick}
     >
       <div className="email-card__avatar">{email.from.name[0].toUpperCase()}</div>

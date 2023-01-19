@@ -9,7 +9,7 @@ function EmailList() {
     const [emails, setEmails] = useState([]);
     const [filteredEmails, setFilteredEmails] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages,setTotalPages] = useState(0)
+    const [totalPages, setTotalPages] = useState(0)
     const [favorited, setFavorited] = useState([]);
     const [readStatus, setReadStatus] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState("All");
@@ -20,7 +20,7 @@ function EmailList() {
 
     // Function to handle pagination
     const handlePageChange = (page) => {
-           setCurrentPage(page);
+        setCurrentPage(page);
     }
 
     // Function to handle date formatting
@@ -38,6 +38,7 @@ function EmailList() {
     useEffect(() => {
         fetchEmails(currentPage);
         checkFavoritedandRead()
+        console.log(document.getElementsByClassName("selected").length===0?"all":document.getElementsByClassName("selected")[0].id)
     }, [currentPage]);
 
     // Function to fetch emails accd to page num
@@ -50,7 +51,7 @@ function EmailList() {
             setFilteredEmails(data.list)
             setLoading(false)
             setTotalPages(data.total)
-            
+
         } catch (error) {
             console.error(error);
         }
@@ -155,22 +156,25 @@ function EmailList() {
             <section className={`filter ${active ? "active" : ""}`}>
                 <p>Filter by :</p>
                 <button
+                    id="read"
                     className={`filter-button ${selectedFilter === "read" ? "selected" : ""}`}
                     onClick={() => handleFilterClick("read")}
                 >Read</button>
                 <button
+                  id="unread"
                     className={`filter-button ${selectedFilter === "unread" ? "selected" : ""}`}
                     onClick={() => handleFilterClick("unread")}
                 >Unread</button>
                 <button
+                    id="favorite"
                     className={`filter-button ${selectedFilter === "favorite" ? "selected" : ""}`}
                     onClick={() => handleFilterClick("favorite")}
                 >Favorite</button>
             </section>
             <section className={`menu ${active ? "active" : ""}`}>
-                <button className='menu__button' onClick={()=>setActive(false)}>Back</button>
+                <button className='menu__button' onClick={() => setActive(false)}>Back</button>
             </section>
-            {loading && <Spinner/>}
+            {loading && <Spinner />}
             <div className="email-list">
 
                 {!loading && filteredEmails.map((email) => (
@@ -179,27 +183,28 @@ function EmailList() {
                         key={email.id}
                         email={email}
                         onClick={() => handleSelectEmail(email, email.id)}
-                        selected={selectedEmail && selectedEmail.id === email.id ?"selected":""}
+                        clicked={selectedEmail && selectedEmail.id === email.id ? "clicked" : ""}
                         favorited={favorited}
                         read={readStatus}
                         handleMarkAsFavorite={handleMarkAsFavorite}
                         formatDate={formatDate}
                     />
                 ))}
-                    {selectedEmail && <EmailBody
-                active={active ? "active" : ""}
-                email={selectedEmail}
-                favorited={favorited}
-                formatDate={formatDate}
-                handleMarkAsFavorite={handleMarkAsFavorite}
-            />}
+                {selectedEmail && <EmailBody
+                    active={active ? "active" : ""}
+                    email={selectedEmail}
+                    favorited={favorited}
+                    formatDate={formatDate}
+                    handleMarkAsFavorite={handleMarkAsFavorite}
+                />}
+                    
             </div>
+     
             <Pagination
                 currentPage={currentPage}
                 handlePageChange={handlePageChange}
                 totalPages={totalPages}
             />
-        
         </div>
 
     )
