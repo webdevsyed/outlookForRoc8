@@ -1,0 +1,48 @@
+/* table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  th {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .unread {
+    font-weight: bold;
+  }
+  
+  .favorited {
+    color: #faa61a;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #ccc;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 50px;
+  }
+  
+
+  .EmailBody {
+    display: none;
+  }
+  
+  .selected + .EmailBody {
+    display: block;
+  }
+   */

@@ -1,0 +1,86 @@
+@import "./variables.css";
+
+.email-card {
+	box-sizing: border-box;
+	background-color: var(--background-color);
+	display: flex;
+	padding: 0.75rem 1.5rem;
+	border: 1.5px solid var(--border-color);
+	border-radius: 10px;
+	margin: 0.7rem 1rem 1.25rem 1rem;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	flex-wrap: nowrap;
+	transition: all 0.3s ease-in-out;
+	width: calc(100%-1rem);
+}
+
+.email-card.active {
+	margin: 0.7rem 1rem 1.25rem 1rem;
+	display: flex;
+	flex-wrap: nowrap;
+	width: calc(35% - 1.5rem);
+	padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+	position: relative;
+}
+
+@media only screen and (max-width: 900px) {
+	.email-card.active {
+		display: none;
+	}
+}
+
+.email-card.active.selected {
+	border: 1.5px solid var(--accent-color);
+	background-color: white;
+}
+
+.email-card__avatar {
+	min-width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-color: var(--accent-color);
+	color: white;
+	font-size: 1.25rem;
+	text-align: center;
+	line-height: 2.5rem;
+	margin-right: 1.5rem;
+	font-weight: 600;
+	align-self: flex-start;
+}
+
+.email-card p {
+	margin: 0;
+	color: var(--text-color);
+}
+
+.email-card__content {
+	overflow: hidden;
+}
+
+.email-card__subject {
+	padding-top: 3px;
+}
+
+.email-card__description {
+	padding: 10px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.email-card__date {
+	font-size: 14px;
+}
+
+.read {
+	background-color: var(--read-background-color);
+}
+
+.email-card__favorited {
+	color:var(--accent-color);
+	margin-left: auto;
+	font-weight: 700;
+	padding-left: 1.5rem;
+	font-size: 0.9rem;
+}

@@ -1,0 +1,106 @@
+@import "./variables.css";
+
+.container {
+        padding: 1rem;
+    margin: 0;
+    overflow: hidden;
+}
+
+.filter {
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-color);
+ 
+}
+
+.filter p {
+  font-size: 0.9rem;
+  margin-right: 0.5em;
+}
+
+.filter-button {
+  background-color: transparent;
+  /* background-color: var(--background-color); */
+  border: none;
+  padding: 0.40rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-button.selected {
+  background-color: #e1e5ea;
+  color: var(--text-color);
+  border:1px solid var(--border-color)
+}
+
+.filter-button:hover {
+  background-color: var(--border-color);
+  cursor: pointer;
+}
+
+.email-list {
+  position: relative;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: 80vh;
+ height: 100%;
+ }
+
+
+ @media only screen and (max-width: 900px) {
+  .filter.active{
+    display: none;
+  }
+  .email-list {
+   height: 100%;
+   }
+   .filter-button:hover {
+    background-color: #e1e5ea;;
+   
+  }
+}
+
+.menu{
+  display: none;
+}
+
+.menu__button {
+  background-color: transparent;
+  border: 1.5px solid var(--border-color);
+  color: var(--accent-color);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+  width: 11ch;
+}
+
+.menu__button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+}
+
+.menu.active{
+  display: none;
+  }
+
+@media only screen and (max-width: 900px) {
+      .menu.active {
+      display: flex;
+      margin-bottom
+      :1rem;
+      align-items: center;
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-color);
+     }
+}

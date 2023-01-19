@@ -1,0 +1,36 @@
+@import "./variables.css";
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.pagination-button {
+    background-color: transparent;
+    border: 1.5px solid var(--border-color);
+    color: var(--accent-color);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+    width: 11ch;
+}
+
+.pagination-button:hover:enabled {
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+}
+.pagination-button:disabled {
+    color:  var(--text-color);
+    cursor: default;
+}
+
+
+.pagination-button.active {
+    background-color: var(--accent-color);
+    color: white;
+}
